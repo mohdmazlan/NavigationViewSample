@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page
+    x:Class="NavigationViewSample.WebCamPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:NavigationViewSample"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid ColumnDefinitions="4*,*" ColumnSpacing="4">
+        <MediaPlayerElement
+            x:Name="mpePreview"
+            Grid.Row="0"
+            Grid.Column="0"
+            AreTransportControlsEnabled="False"
+            ManipulationMode="None" />
+        <Canvas
+            x:Name="FaceDetectionCanvas"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Background="Transparent" />
+        <StackPanel
+            Grid.Row="0"
+            Grid.Column="1"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            Orientation="Vertical">
+            <TextBlock Margin="0,0,10,0" Text="Status:" />
+            <TextBlock x:Name="tbStatus" Text="" />
+            <TextBlock Margin="0,0,10,0" Text="Preview Source:" />
+            <ComboBox
+                x:Name="cbDeviceList"
+                HorizontalAlignment="Stretch"
+                SelectionChanged="cbDeviceList_SelectionChanged" />
+            <Button
+                x:Name="bStartMediaCapture"
+                Click="bStartMediaCapture_Click"
+                Content="Initialize MediaCapture"
+                IsEnabled="False" />
+            <Button
+                x:Name="bStartPreview"
+                Click="bStartPreview_Click"
+                Content="Start preview"
+                IsEnabled="False" />
+            <Button
+                x:Name="bStopPreview"
+                Click="bStopPreview_Click"
+                Content="Stop preview"
+                IsEnabled="False" />
+            <Button
+                x:Name="bReset"
+                Click="bReset_Click"
+                Content="Reset" />
+        </StackPanel>
+    </Grid>
+</Page>
